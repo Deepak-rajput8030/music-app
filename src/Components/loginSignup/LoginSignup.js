@@ -24,16 +24,17 @@ function LoginSignup() {
       if(isSignup) {
         // Signup Mode
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        console.log('Signed up: ', userCredential.user);
+        // console.log('Signed up: ', userCredential.user);
       } else {
         // Login Mode
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        console.log('Logged in: ', userCredential.user);
+        // console.log('Logged in: ', userCredential.user);
       }
       navigate('/home');
     
     } catch (error) {
       setError(error.message);
+      console.log('new 12342');
     }
   }
 
@@ -61,7 +62,7 @@ function LoginSignup() {
         </div>
 
         <div>
-          <span className="error-msg">
+          <span className="error-msg" style={{color: 'red'}}>
             {error && <p>{error}</p>}
           </span>
           

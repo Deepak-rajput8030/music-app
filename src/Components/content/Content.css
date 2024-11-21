@@ -2,7 +2,6 @@
   color:  red;
   margin-top: 100px;
   font-size: 1rem;
-  color: white;
 }
 .content-container{
   padding: 20px;
@@ -53,4 +52,40 @@
 .text-info-video-upload-date{
   font-size: 14px;
   color: #AAAAAA;
+}
+
+@media screen and (max-width: 500px) {
+  .error-msg{
+    font-size: 15px;
+  }
+  .content-container{
+    padding: 0px 0;
+  }
+  .video-content{
+    margin: auto;
+    padding: 10px 0;
+  }
+  .video-thumbnail-iframe{
+    height: 200px;
+    width: 350px;
+    width: 100%;
+  }
+  .channel-profile-img{
+    height: 40px;
+    width: 40px;
+  }
+  .video-text{
+    width: 350px;
+    height: 100px;
+  }
+  .text-info-video-title{
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .text-info-channel-name{
+    font-size: 12px;
+  }
+  .text-info-video-upload-date{
+    font-size: 12px;
+  } 
 }

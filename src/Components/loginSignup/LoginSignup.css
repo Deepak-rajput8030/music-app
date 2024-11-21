@@ -12,7 +12,6 @@
   font-size: 3rem;
   margin-bottom: 40px;
 }
-
 .input-field{
   background-color: white;
   height: 50%;
@@ -37,7 +36,7 @@
 
 }
 .error-msg{
-  color: red;
+  color: green;
   font-size: 14px;
   text-align: center;
 }
@@ -68,4 +67,32 @@
   cursor: pointer;
   background-color: white;
   color: #385185;
+}
+
+@media screen and (max-width: 500px) {
+.login-signup h2{
+  font-size: 2.5rem;
+}
+.input-field{
+  height: 50%;
+  width: 90%;
+}
+.input-field input{
+  width: 250px;
+  height: 45px;
+  font-size: 14px;
+}
+.error-msg{
+  font-size: 12px;
+}
+.submit-btn{
+  width: 250px;
+  padding: 10px;
+  font-size: 15px;
+}
+.togglebtn{
+  width: 90%;
+}
+
+  
 }

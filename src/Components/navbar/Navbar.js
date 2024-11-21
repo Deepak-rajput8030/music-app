@@ -56,19 +56,6 @@ function Navbar({ onSearch }) {
       </div>
     </div>
 
-    <div className='sub-nav'>
-      {/* <span className='sub-nav-span'>Trending</span>
-      <span className='sub-nav-span'>Music</span>
-      <span className='sub-nav-span'>Sports</span>
-      <span className='sub-nav-span'>Movies</span>
-      <span className='sub-nav-span'>Gaming</span>
-      <span className='sub-nav-span'>Shopping</span>
-      <span className='sub-nav-span'>Live</span>
-      <span className='sub-nav-span'>News</span>
-      <span className='sub-nav-span'>Fasion & Beauty</span> 
-      <i className="sub-nav-i fa-solid fa-angle-right"></i>
-      */}
-    </div>
   </div>
   )
 }
