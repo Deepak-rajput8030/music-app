@@ -10,6 +10,7 @@ function Content({ videos, hasSearched }) {
   }
 
   return (
+    <>
     <div className='content-container'>
       {videos.map((video) => (
         <li key={video.id.videoId} className='video-content'>
@@ -36,12 +37,22 @@ function Content({ videos, hasSearched }) {
             <div className='text-info'>
               <p className='text-info-video-title'>{video.snippet.title}</p>
               <p className='text-info-channel-name'>{video.snippet.channelTitle}</p>
-              <p className='text-info-video-upload-date'>Published on {new Date(video.snippet.publishedAt).toLocaleDateString()}</p>
+              <p className='text-info-video-upload-date'> {new Date(video.snippet.publishedAt).toLocaleDateString()}</p>
             </div>
           </div>
         </li>
       ))}
     </div>
+
+    <footer>
+      <div id='Footer' className='footer-section'>
+        <h1> <i className="fa-regular fa-copyright"></i> 
+          2024 Deepak Maher. All Rights Reserved.
+        </h1>
+      </div>
+    </footer>
+
+    </>
   );
 }
 

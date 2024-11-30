@@ -45,7 +45,7 @@ function LoginSignup() {
         <div>
           <input 
             type='email'
-            placeholder="Enter Email"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -54,7 +54,7 @@ function LoginSignup() {
         <div>
           <input 
             type='password'
-            placeholder="Enter Password"
+            placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required

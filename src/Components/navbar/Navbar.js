@@ -25,6 +25,25 @@ function Navbar({ onSearch }) {
     }
     setQuery('');
   };
+
+  const showSidebar = () => {
+    const sidebar = document.getElementsByClassName('nav-menu')[0]; // Access the first element with this class
+    if (sidebar) {
+    sidebar.style.display = 'flex'; // Update the display property
+    }
+  };
+  
+  const closeSidebar = () => {
+    const sidebar = document.getElementsByClassName('nav-menu')[0];
+    if (sidebar) {
+      sidebar.style.display = 'none'; // Hide the sidebar
+    }
+  };
+
+  const handleLogout = () => {
+    // Redirect to the login page
+    window.location.href = 'https://deepak-rajput8030.github.io/music-app/';
+  };
   
   return (
   <div className='nav-section'>
@@ -51,9 +70,31 @@ function Navbar({ onSearch }) {
         </button>
       </div>
 
-      <div className='nav-profile'>
-        <img className='nav-profile-img' src={img} alt='profile_img'></img>
+      <div className='nav-profile' onClick={showSidebar}>
+        <img onClick={showSidebar} className='nav-profile-img' src={img} alt='profile_img'></img>
       </div>
+
+        <div className="nav-menu">
+          <i className='close-sidebar fa-solid fa-circle-xmark' 
+             onClick={closeSidebar}>
+          </i>
+          <p>Email - example123@gmail.com</p>
+          
+          <p className='theme-btn'>
+            <span>
+              <i className="fa-solid fa-circle-half-stroke"></i> 
+              Theme (not active yet!)
+            </span>
+          </p>
+         
+          <p className='logout-btn' onClick={handleLogout}>
+            <span>
+              <i className="fa-solid fa-right-from-bracket"></i> 
+              Sign out
+            </span>
+          </p>
+
+        </div>
     </div>
 
   </div>
