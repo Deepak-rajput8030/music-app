@@ -15,7 +15,6 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  /* border-bottom: 1px solid #aeabab; */
   border-bottom: 1px solid red;
   align-items: center;
 }
@@ -80,22 +79,21 @@
 }
 .close-sidebar{
   font-size: 40px;
-  text-align: end;
-  padding-top: 10px;
-  margin-bottom: 10px;
   cursor: pointer;
 }
+.nav-menu span{
+  text-align: end;
+}
 .close-sidebar:hover{
-  color: #aeabab;
+  color: white;
 }
 .nav-menu{
-  color: white;
+  color: rgba(212, 212, 212, 0.889);
   background-color: #2f2f2f;
   border: 1px solid #686868;
-  padding: 0 15px;
-  height: 255px;
+  padding: 10px 10px;
   font-weight: bold;
-  gap: 30px;
+  gap: 20px;
   display: none;
   align-items: left;
   flex-direction: column;
@@ -103,30 +101,41 @@
   top: 0;
   border-radius: 15px;
   margin-top: 10px;
-  margin-right: 10px;
+  margin-right: 25px;
   right: 0;
   z-index: 0;
 }
-
-.theme-btn i, .theme-btn span{
+.user-email{
+  padding: 5px;
+}
+.theme-btn{
+  display: flex;
+  padding: 5px;
   cursor: pointer;
-  margin-top: 15px;
+}
+.theme-btn i{
   margin-right: 10px;
 }
-.theme-btn span:hover{
-  color: #aeabab;
+.theme-btn:hover{
+  background-color: #4d4c4cdb;
+  color: white;
 }
 
 .logout-btn{
   border-top: 1px solid #686868;
-}
-.logout-btn i, .logout-btn span{
+  align-items: center;
+  display: flex;
+  padding: 5px;
   cursor: pointer;
-  margin-top: 15px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.logout-btn i{
   margin-right: 10px;
 }
-.logout-btn span:hover{
-  color: #aeabab;
+.logout-btn:hover{
+  background-color: #4d4c4cdb;
+  color: white;
 }
 
 
@@ -163,8 +172,7 @@
     width: 5.5vw;
   }
   .nav-menu{
-    /* height: 29vh; */
-    gap: 30px;
+    margin-right: 12px;
   }
 }
 
@@ -202,14 +210,15 @@
     width: 8.5vw;
   }
   .close-sidebar{
+    padding-top: 8px;
     font-size: 30px;
   }
   .close-sidebar:hover{
     color: #aeabab;
   }
   .nav-menu{
-    padding: 0 15px;
-    gap: 30px;
+    padding: 5px 10px;
+    margin-right: 0px;
     position: fixed;
     border-radius: 15px;
   }

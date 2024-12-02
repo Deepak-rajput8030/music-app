@@ -44,6 +44,10 @@ function Navbar({ onSearch }) {
     // Redirect to the login page
     window.location.href = 'https://deepak-rajput8030.github.io/music-app/';
   };
+
+  const themeMsg = () => {
+    alert('Feature Adding Soon...')
+  }
   
   return (
   <div className='nav-section'>
@@ -75,22 +79,22 @@ function Navbar({ onSearch }) {
       </div>
 
         <div className="nav-menu">
-          <i className='close-sidebar fa-solid fa-circle-xmark' 
-             onClick={closeSidebar}>
-          </i>
-          <p>Email - example123@gmail.com</p>
+          <span onClick={closeSidebar}>
+            <i className='close-sidebar fa-solid fa-circle-xmark'></i> 
+          </span>
+          <p className='user-email'>Email - example123@gmail.com</p>
           
-          <p className='theme-btn'>
+          <p onClick={themeMsg} className='theme-btn'>
             <span>
               <i className="fa-solid fa-circle-half-stroke"></i> 
-              Theme (not active yet!)
+              Theme
             </span>
           </p>
          
           <p className='logout-btn' onClick={handleLogout}>
             <span>
               <i className="fa-solid fa-right-from-bracket"></i> 
-              Sign out
+              Sign Out
             </span>
           </p>
 

@@ -47,7 +47,7 @@ function Content({ videos, hasSearched }) {
     <footer>
       <div id='Footer' className='footer-section'>
         <h1> <i className="fa-regular fa-copyright"></i> 
-          2024 Deepak Maher. All Rights Reserved.
+          2024 BeatBox. All Rights Reserved.
         </h1>
       </div>
     </footer>
