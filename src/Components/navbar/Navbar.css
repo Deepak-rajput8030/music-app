@@ -10,7 +10,7 @@
 }
 .navbar{
   height: 5rem;
-  background-color: #0F0F0F;
+  background-color: var(--page-bg-color);
   padding: 5px 30px;
   width: 100%;
   display: flex;
@@ -30,7 +30,7 @@
   border-radius: 5px;
 }
 .nav-home-h1{
-  color: white;
+  color: var(--text-color);
   font-size: 2.2vw;
 }
 .nav-search{
@@ -46,6 +46,7 @@
   font-size: 16px;
   outline: none;
   width: 80%;
+  background-color: var(--nav-search-input-color);
   height: 45px;
   padding: 5px 20px;
   border-top-left-radius: 5px;
@@ -57,7 +58,7 @@
   background-color: orangered;
   outline: none;
   border: none;
-  color: white;
+  color: var(--text-color);
   cursor: pointer;
   font-size: 1.5vw;
   border-top-right-radius: 5px;
@@ -76,20 +77,23 @@
   width: 3vw;
   border-radius: 50%;
   background-size: cover;
+  border: 1px solid black;
 }
 .close-sidebar{
   font-size: 40px;
+  border-radius: 50%;
   cursor: pointer;
 }
 .nav-menu span{
   text-align: end;
 }
 .close-sidebar:hover{
-  color: white;
+  color: var(--hover-color);
+  background-color: var(--text-color);
 }
 .nav-menu{
-  color: rgba(212, 212, 212, 0.889);
-  background-color: #2f2f2f;
+  color: var(--text-color);
+  background-color: var(--page-bg-color);
   border: 1px solid #686868;
   padding: 10px 10px;
   font-weight: bold;
@@ -117,8 +121,8 @@
   margin-right: 10px;
 }
 .theme-btn:hover{
-  background-color: #4d4c4cdb;
-  color: white;
+  background-color: var(--hover-color);
+  color: var(--text-color);
 }
 
 .logout-btn{
@@ -134,8 +138,8 @@
   margin-right: 10px;
 }
 .logout-btn:hover{
-  background-color: #4d4c4cdb;
-  color: white;
+  background-color: var(--hover-color);
+  color: var(--text-color);
 }
 
 
@@ -212,9 +216,6 @@
   .close-sidebar{
     padding-top: 8px;
     font-size: 30px;
-  }
-  .close-sidebar:hover{
-    color: #aeabab;
   }
   .nav-menu{
     padding: 5px 10px;

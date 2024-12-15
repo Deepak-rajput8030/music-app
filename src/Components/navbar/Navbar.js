@@ -44,9 +44,9 @@ function Navbar({ onSearch }) {
     // Redirect to the login page
     window.location.href = 'https://deepak-rajput8030.github.io/music-app/';
   };
-
-  const themeMsg = () => {
-    alert('Feature Adding Soon...')
+  
+  const toggleTheme = () => {
+      document.body.classList.toggle('dark-theme')
   }
   
   return (
@@ -84,9 +84,9 @@ function Navbar({ onSearch }) {
           </span>
           <p className='user-email'>Email - example123@gmail.com</p>
           
-          <p onClick={themeMsg} className='theme-btn'>
+          <p onClick={toggleTheme} className='theme-btn'>
             <span>
-              <i className="fa-solid fa-circle-half-stroke"></i> 
+              <i class="fa-solid fa-circle-half-stroke"></i>
               Theme
             </span>
           </p>
