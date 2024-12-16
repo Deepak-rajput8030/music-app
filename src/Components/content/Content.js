@@ -9,6 +9,7 @@ function Content({ videos, hasSearched }) {
     );
   }
 
+
   return (
     <>
     <div className='content-container'>

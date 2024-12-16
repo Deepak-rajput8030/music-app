@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useContext, useEffect} from "react";
+import { UserContext } from './../firebase/UserContext';
 import { useNavigate  } from 'react-router-dom';
 import { auth } from './../firebase/firebaseConfig';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import './LoginSignup.css';
 
 function LoginSignup() {
+  const { setUser } = useContext(UserContext); // to access the setUser function
   const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,15 +23,20 @@ function LoginSignup() {
     setError('');
 
     try {
+      let userCredential;
       if(isSignup) {
         // Signup Mode
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        // console.log('Signed up: ', userCredential.user);
+        userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        console.log('Signed up: Email - ', userCredential.user.email);
       } else {
         // Login Mode
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        // console.log('Logged in: ', userCredential.user);
+        userCredential = await signInWithEmailAndPassword(auth, email, password);
+        console.log('Logged in: Email - ', userCredential.user.email); 
       }
+
+      // update UserCredential with email
+      setUser({email: userCredential.user.email}); 
+      
       navigate('/home');
     
     } catch (error) {

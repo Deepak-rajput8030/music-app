@@ -6,24 +6,24 @@
   box-sizing: border-box;
 }
 
-/* light theme  */
+/* dark theme color */
 :root{
-  --page-bg-color: #fff;
-  --text-color: #111;
-  --nav-search-input-color: whitesmoke;
-  --video-thumbnail-iframe: whitesmoke;
-  --hover-color: rgb(223, 221, 221);
-  --footer-bg-color: rgba(207, 207, 207, 0.808);
-}
-
-/* light theme */
-.dark-theme{
   --page-bg-color: #0F0F0F;
   --text-color: #fff;
   --nav-search-input-color: #fff;
   --video-thumbnail-iframe: #1e1e1e96;
   --hover-color: #b1b1b1c7;
   --footer-bg-color: black;
+}
+
+/* light theme color*/
+.light-theme{
+  --page-bg-color: #fff;
+  --text-color: #111;
+  --nav-search-input-color: rgb(230, 230, 230);
+  --video-thumbnail-iframe: rgb(233, 233, 233);
+  --hover-color: rgb(223, 221, 221);
+  --footer-bg-color: rgba(207, 207, 207, 0.808);
 }
 
 body {

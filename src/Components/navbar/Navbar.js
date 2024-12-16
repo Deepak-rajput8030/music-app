@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
+import { UserContext } from './../firebase/UserContext'; // import the context
 import img from '../../Assets/profile-img.jpg'; 
 import logo from './../../Assets/login-logo.jpg'
 import './Navbar.css';
@@ -6,6 +7,7 @@ import './Navbar.css';
 // youtube Api key = AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s
 
 function Navbar({ onSearch }) {
+  const { user } = useContext(UserContext); // access the user data from context 
   const [query, setQuery] = useState('');
 
   const handleInputChange = (e) => {
@@ -46,7 +48,7 @@ function Navbar({ onSearch }) {
   };
   
   const toggleTheme = () => {
-      document.body.classList.toggle('dark-theme')
+      document.body.classList.toggle('light-theme')
   }
   
   return (
@@ -82,8 +84,8 @@ function Navbar({ onSearch }) {
           <span onClick={closeSidebar}>
             <i className='close-sidebar fa-solid fa-circle-xmark'></i> 
           </span>
-          <p className='user-email'>Email - example123@gmail.com</p>
-          
+          <p className='user-email'>Email - {user.email }</p>
+
           <p onClick={toggleTheme} className='theme-btn'>
             <span>
               <i class="fa-solid fa-circle-half-stroke"></i>
