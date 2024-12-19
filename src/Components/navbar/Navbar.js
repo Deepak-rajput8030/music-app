@@ -4,7 +4,6 @@ import img from '../../Assets/profile-img.jpg';
 import logo from './../../Assets/login-logo.jpg'
 import './Navbar.css';
 
-// youtube Api key = AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s
 
 function Navbar({ onSearch }) {
   const { user } = useContext(UserContext); // access the user data from context 
