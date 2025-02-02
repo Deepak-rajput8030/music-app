@@ -4,8 +4,8 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 5rem;
   position: fixed;
+  height: 7.5rem;
   top: 0;
 }
 .navbar{
@@ -15,7 +15,6 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid red;
   align-items: center;
 }
 .nav-home{
@@ -107,7 +106,7 @@
   margin-top: 10px;
   margin-right: 25px;
   right: 0;
-  z-index: 0;
+  /* z-index: 100;  this changed */
 }
 .user-email{
   padding: 5px;
@@ -140,6 +139,46 @@
 .logout-btn:hover{
   background-color: var(--hover-color);
   color: var(--text-color);
+}
+
+/* sub nav bar --------------------------------------------*/
+
+.scrollable-tabs-container{
+  background-color: var(--page-bg-color);
+  display: flex;
+  align-items: center;
+  width: 97%;
+  margin: 0 auto;
+  gap: 15px;
+  padding: 10px;
+  overflow: hidden;
+  overflow-x: scroll;
+  position: relative;
+  z-index: -9999; 
+}
+.scrollable-tabs-container a{
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--video-thumbnail-iframe);
+  padding: 8px 20px;
+  display: inline-block;
+  border-radius: 5px;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.scrollable-tabs-container::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollable-tabs-container a.active{
+  background-color: var(--text-color);
+  color: var(--page-bg-color);
+}
+.scrollable-tabs-container ul{ 
+  list-style: none;
+  font-weight: 600;
 }
 
 
@@ -177,13 +216,24 @@
   }
   .nav-menu{
     margin-right: 12px;
-  }
+  }  
+
+  
+/* sub nav bar --------------------------------------------*/
+
+.scrollable-tabs-container{
+  width: 95%;
+  gap: 15px;
+}
+.scrollable-tabs-container a{
+  padding: 8px 15px;
+}
 }
 
 
 @media (max-width: 500px) {
   .navbar{
-  height: 5rem;
+  height: 2rem;
   width: 100%;
   padding: 5px;
   }
@@ -223,4 +273,18 @@
     position: fixed;
     border-radius: 15px;
   }
+
+  
+/* sub nav bar --------------------------------------------*/
+
+.scrollable-tabs-container{
+  width: 96%;
+  margin-right: 10px;
+  gap: 10px;
+}
+.scrollable-tabs-container a{
+  padding: 6px 13px;
+  font-size: 14px;
+}
+
 }

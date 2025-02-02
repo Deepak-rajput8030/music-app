@@ -17,7 +17,7 @@ function Navbar({ onSearch }) {
     if(query.trim() === '') return;
     try {
       const response = await fetch(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&maxResults=12&key=AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}& "official music video"|"official audio" -remix -cover -live -performance -reaction -mashup -edit -dj&topicId=/m/04rlf&videoSyndicated=true&type=video&maxResults=12&channelType=any&videoCategoryId=10&key=AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s`
       )
       const data = await response.json();
       onSearch(data.items);
@@ -50,6 +50,21 @@ function Navbar({ onSearch }) {
       document.body.classList.toggle('light-theme')
   }
   
+  const tabs = document.querySelectorAll('.scrollable-tabs-container a');
+
+  const removeAllActiveclass = () => {
+    tabs.forEach((tab) => {
+      tab.classList.remove('active');
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      removeAllActiveclass();
+      tab.classList.add('active');
+    });
+  });
+
   return (
   <div className='nav-section'>
 
@@ -87,7 +102,7 @@ function Navbar({ onSearch }) {
 
           <p onClick={toggleTheme} className='theme-btn'>
             <span>
-              <i class="fa-solid fa-circle-half-stroke"></i>
+              <i className="fa-solid fa-circle-half-stroke"></i>
               Theme
             </span>
           </p>
@@ -101,6 +116,28 @@ function Navbar({ onSearch }) {
 
         </div>
     </div>
+
+    <div className='scrollable-tabs-container'>
+
+      <ul> <li> <a href='#' className='active'>Trending</a> </li> </ul>
+      <ul> <li> <a href='#'>New Release</a> </li> </ul>
+      <ul> <li> <a href='#'>Romance</a> </li> </ul>
+      <ul> <li> <a href='#'>Sad</a> </li> </ul>
+      <ul> <li> <a href='#'>Workout</a> </li> </ul>
+      <ul> <li> <a href='#'>Party</a> </li> </ul>
+      <ul> <li> <a href='#'>Relax</a> </li> </ul>
+      <ul> <li> <a href='#'>Energize</a> </li> </ul>
+      <ul> <li> <a href='#'>Sleep</a> </li> </ul>
+      <ul> <li> <a href='#'>Chill</a> </li> </ul>
+      <ul> <li> <a href='#'>Dance</a> </li> </ul>
+      <ul> <li> <a href='#'>Classical</a> </li> </ul>
+      <ul> <li> <a href='#'>Feel good</a> </li> </ul>
+      <ul> <li> <a href='#'>Focus</a> </li> </ul>
+      <ul> <li> <a href='#'>Bollywood</a> </li> </ul>
+      <ul> <li> <a href='#'>Hollywood</a> </li> </ul>
+      <ul> <li> <a href='#'>Focus</a> </li> </ul>
+
+    </div>    
 
   </div>
   )

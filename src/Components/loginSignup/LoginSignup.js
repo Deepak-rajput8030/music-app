@@ -27,11 +27,9 @@ function LoginSignup() {
       if(isSignup) {
         // Signup Mode
         userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        console.log('Signed up: Email - ', userCredential.user.email);
       } else {
         // Login Mode
         userCredential = await signInWithEmailAndPassword(auth, email, password);
-        console.log('Logged in: Email - ', userCredential.user.email); 
       }
 
       // update UserCredential with email
@@ -41,7 +39,6 @@ function LoginSignup() {
     
     } catch (error) {
       setError(error.message);
-      console.log('new 12342');
     }
   }
 
@@ -61,7 +58,7 @@ function LoginSignup() {
         <div>
           <input 
             type='password'
-            placeholder="Password"
+            placeholder={isSignup ? "Create Password" : "Password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -69,10 +66,12 @@ function LoginSignup() {
         </div>
 
         <div>
-          <span className="error-msg" style={{color: 'red'}}>
+          <span className="error-msg" >
             {error && <p>{error}</p>}
           </span>
-          
+        </div>
+
+        <div>          
           <button className="submit-btn" type="submit">
             {isSignup ? "Sign Up" : "Login"}
           </button>
@@ -86,6 +85,9 @@ function LoginSignup() {
         </button>
       </span>
 
+      <div className="login-tagline">
+          Search. Play. Enjoy - Your Music, Your Way!
+      </div>
     </div>
   )
 }

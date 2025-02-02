@@ -5,7 +5,8 @@
   flex-direction: column;
   height: 100vh;
   gap: 8px;
-  background-color: #111;
+  background-image: url('./../../Assets/login-page-bg-img.jpg');
+  background-size: cover;
   padding: 0 10px;
 }
 .login-signup h2{
@@ -14,7 +15,7 @@
 }
 .input-field{
   background-color: white;
-  height: 50%;
+  height: 55%;
   width: 400px;
   display: flex;
   justify-content: center;
@@ -36,45 +37,63 @@
 
 }
 .error-msg{
-  color: green;
-  font-size: 14px;
   text-align: center;
+  font-size: 15px;
 }
 .submit-btn{
   width: 300px;
   padding: 10px;
-  font-size: 15px;
+  font-size: 16px;
   border: none;
   outline: none;
   background-color: #4DB5F9;
   color: white;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   border-radius: 5px;
   margin-top: 15px;
+  align-items: center;
+  
 }
 .togglebtn{
   padding: 30px;
   width: 400px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: white;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
 .togglebtn button{
+  font-size: 14px;
   border: none;
   padding: 5px;
   cursor: pointer;
   background-color: white;
   color: #385185;
 }
+.login-tagline{
+  padding: 25px;
+  font-size: 1.7rem;
+  color: goldenrod;
+  font-weight: 700;
+  word-spacing: 5px;
+  white-space: none;
+}
+@media screen and (max-width: 650px) {
+   .login-tagline{
+    font-size: 1.3rem;
+  }
+}
 
 @media screen and (max-width: 500px) {
 .login-signup h2{
   font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 .input-field{
-  height: 50%;
+  height: 45%;
   width: 90%;
 }
 .input-field input{
@@ -92,7 +111,10 @@
 }
 .togglebtn{
   width: 90%;
+  height: 10%;
 }
-
-  
+.login-tagline{
+  padding: 25px 0;
+  font-size: 0.9rem;
+}
 }

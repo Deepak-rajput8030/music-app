@@ -9,7 +9,6 @@ function Content({ videos, hasSearched }) {
     );
   }
 
-
   return (
     <>
     <div className='content-container'>
@@ -22,8 +21,9 @@ function Content({ videos, hasSearched }) {
               title={video.snippet.title}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+              allowFullScreen>
+            </iframe>
+            <div className="hide-logo"></div> {/* Covers the YouTube logo */}
           </div>
 
           <div className="video-text">
@@ -44,6 +44,8 @@ function Content({ videos, hasSearched }) {
         </li>
       ))}
     </div>
+
+    {/* <div className='loader'> <span>hi</span> </div> */}
 
     <footer>
       <div id='Footer' className='footer-section'>
