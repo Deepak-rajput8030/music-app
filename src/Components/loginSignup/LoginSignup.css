@@ -5,7 +5,6 @@
   flex-direction: column;
   height: 100vh;
   gap: 8px;
-  background-image: url('./../../Assets/login-page-bg-img.jpg');
   background-size: cover;
   padding: 0 10px;
 }

@@ -3,6 +3,7 @@ import { UserContext } from './../firebase/UserContext';
 import { useNavigate  } from 'react-router-dom';
 import { auth } from './../firebase/firebaseConfig';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import bg_image from './../../Assets/login-page-bg-img.jpg';
 import './LoginSignup.css';
 
 function LoginSignup() {
@@ -43,7 +44,7 @@ function LoginSignup() {
   }
 
   return (
-    <div className="login-signup">
+    <div className="login-signup" style={{backgroundImage: `url(${bg_image})`}}>
       <form  className="input-field" onSubmit={handleSubmit}>
       <h2> BeatBox </h2>
         <div>
