@@ -13,13 +13,15 @@ function Home() {
     const fetchTrendingVideos = async () => {
       try {
         const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoSyndicated=true&videoLicense=creativeCommon&maxResults=12&key=AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s`
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoCategoryId=10&order=date&maxResults=12&key=AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s`
+          // `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoSyndicated=true&videoLicense=creativeCommon&maxResults=12&key=AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s`
         );
 
         if (!response.ok) {
           const errorData = await response.json();
           if (errorData.error.code === 403 && errorData.error.errors[0].reason === 'quotaExceeded') {
-            setQuotaMessage('Your daily search quota limit is exceeded. Try again after 24 hours.');
+            setQuotaMessage('The daily search quota has been exceeded.  Please try again after some time.');
+            
           }
           throw new Error("Failed to fetch trending videos");
         }
@@ -52,7 +54,10 @@ function Home() {
     <div className='homepage'>
       <Navbar onSearch={handleSearchResults} />
       <Content videos={searchResults} hasSearched={hasSearched} />
-      {quotaMessage && <div className="quota-message">{quotaMessage}</div>}
+      {quotaMessage && 
+        <div className="quota-message">{quotaMessage}
+          <div className='waiting-gif'></div>
+        </div>}
     </div>
   );
 }

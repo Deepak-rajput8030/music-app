@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import { UserContext } from './../firebase/UserContext'; // import the context
+import { UserContext } from './../firebase/UserContext'; 
 import img from '../../Assets/profile-img.jpg'; 
 import logo from './../../Assets/login-logo.jpg'
 import './Navbar.css';
@@ -17,7 +17,8 @@ function Navbar({ onSearch }) {
     if(query.trim() === '') return;
     try {
       const response = await fetch(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query} "official music video"|"official audio" -remix -cover -live -performance -reaction -mashup -edit -dj&videoSyndicated=true&type=video&maxResults=12&channelType=any&videoCategoryId=10&safeSearch=strict&topicId=/m/04rlf&key=AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query} "official music video"|"official audio" -remix -cover -live -performance -reaction -mashup -edit -dj&type=video&maxResults=12&videoCategoryId=10&safeSearch=strict&key=AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s`
+        // `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query} "official music video"|"official audio" -remix -cover -live -performance -reaction -mashup -edit -dj&videoSyndicated=true&type=video&maxResults=12&channelType=any&videoCategoryId=10&safeSearch=strict&topicId=/m/04rlf&key=AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s`
       )
       const data = await response.json();
       onSearch(data.items);
@@ -118,8 +119,8 @@ function Navbar({ onSearch }) {
     </div>
 
     <div className='scrollable-tabs-container'>
-      <ul> <li> <a href='#' className='active'>Trending</a> </li> </ul>
-      <ul> <li> <a href='#'>New Release</a> </li> </ul>
+      <ul> <li> <a href='#' className='active'>New Release</a> </li> </ul>
+      <ul> <li> <a href='#'>Trending</a> </li> </ul>
       <ul> <li> <a href='#'>Sad</a> </li> </ul>
       <ul> <li> <a href='#'>Workout</a> </li> </ul>
       <ul> <li> <a href='#'>Party</a> </li> </ul>
@@ -128,12 +129,6 @@ function Navbar({ onSearch }) {
       <ul> <li> <a href='#'>Sleep</a> </li> </ul>
       <ul> <li> <a href='#'>Chill</a> </li> </ul>
       <ul> <li> <a href='#'>Dance</a> </li> </ul>
-      <ul> <li> <a href='#'>Classical</a> </li> </ul>
-      <ul> <li> <a href='#'>Feel good</a> </li> </ul>
-      <ul> <li> <a href='#'>Bollywood</a> </li> </ul>
-      <ul> <li> <a href='#'>Romance</a> </li> </ul>
-      <ul> <li> <a href='#'>Hollywood</a> </li> </ul>
-      <ul> <li> <a href='#'>Focus</a> </li> </ul>
     </div>
 
   </div>
