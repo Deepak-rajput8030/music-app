@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import './Home.css';
 import Navbar from '../navbar/Navbar';
 import Content from '../content/Content';
+import './Home.css';
 
 function Home() {
   const [searchResults, setSearchResults] = useState([]);
@@ -13,7 +13,7 @@ function Home() {
     const fetchTrendingVideos = async () => {
       try {
         const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoSyndicated=true&videoLicense=creativeCommon&maxResults=20&key=AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s`
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoSyndicated=true&videoLicense=creativeCommon&maxResults=12&key=AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s`
         );
 
         if (!response.ok) {

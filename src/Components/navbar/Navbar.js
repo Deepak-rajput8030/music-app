@@ -17,7 +17,7 @@ function Navbar({ onSearch }) {
     if(query.trim() === '') return;
     try {
       const response = await fetch(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}& "official music video"|"official audio" -remix -cover -live -performance -reaction -mashup -edit -dj&topicId=/m/04rlf&videoSyndicated=true&type=video&maxResults=12&channelType=any&videoCategoryId=10&key=AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query} "official music video"|"official audio" -remix -cover -live -performance -reaction -mashup -edit -dj&videoSyndicated=true&type=video&maxResults=12&channelType=any&videoCategoryId=10&safeSearch=strict&topicId=/m/04rlf&key=AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s`
       )
       const data = await response.json();
       onSearch(data.items);
@@ -69,10 +69,11 @@ function Navbar({ onSearch }) {
   <div className='nav-section'>
 
     <div className='navbar'>
-        <div className='nav-home'>
-          <img className="nav-home-img" src={logo} alt='app-logo'></img> 
-          <h1 className='nav-home-h1'>BeatBox</h1>
-        </div>
+
+      <div className='nav-home'>
+        <img className="nav-home-img" src={logo} alt='app-logo'></img> 
+        <h1 className='nav-home-h1'> BeatBox </h1>
+      </div>
 
       <div className='nav-search'>
         <input 
@@ -94,34 +95,31 @@ function Navbar({ onSearch }) {
         <img onClick={showSidebar} className='nav-profile-img' src={img} alt='profile_img'></img>
       </div>
 
-        <div className="nav-menu">
-          <span onClick={closeSidebar}>
-            <i className='close-sidebar fa-solid fa-circle-xmark'></i> 
-          </span>
-          <p className='user-email'>Email - {user.email }</p>
+      <div className="nav-menu">
+        <span onClick={closeSidebar}>
+          <i className='close-sidebar fa-solid fa-circle-xmark'></i> 
+        </span>
+        <p className='user-email'>Email - {user.email }</p>
 
-          <p onClick={toggleTheme} className='theme-btn'>
-            <span>
-              <i className="fa-solid fa-circle-half-stroke"></i>
+        <p onClick={toggleTheme} className='theme-btn'>
+          <span>
+            <i className="fa-solid fa-circle-half-stroke"></i>
               Theme
-            </span>
-          </p>
+          </span>
+        </p>
          
-          <p className='logout-btn' onClick={handleLogout}>
-            <span>
-              <i className="fa-solid fa-right-from-bracket"></i> 
+        <p className='logout-btn' onClick={handleLogout}>
+          <span>
+            <i className="fa-solid fa-right-from-bracket"></i> 
               Sign Out
-            </span>
-          </p>
-
+          </span>
+        </p>
         </div>
     </div>
 
     <div className='scrollable-tabs-container'>
-
       <ul> <li> <a href='#' className='active'>Trending</a> </li> </ul>
       <ul> <li> <a href='#'>New Release</a> </li> </ul>
-      <ul> <li> <a href='#'>Romance</a> </li> </ul>
       <ul> <li> <a href='#'>Sad</a> </li> </ul>
       <ul> <li> <a href='#'>Workout</a> </li> </ul>
       <ul> <li> <a href='#'>Party</a> </li> </ul>
@@ -132,12 +130,11 @@ function Navbar({ onSearch }) {
       <ul> <li> <a href='#'>Dance</a> </li> </ul>
       <ul> <li> <a href='#'>Classical</a> </li> </ul>
       <ul> <li> <a href='#'>Feel good</a> </li> </ul>
-      <ul> <li> <a href='#'>Focus</a> </li> </ul>
       <ul> <li> <a href='#'>Bollywood</a> </li> </ul>
+      <ul> <li> <a href='#'>Romance</a> </li> </ul>
       <ul> <li> <a href='#'>Hollywood</a> </li> </ul>
       <ul> <li> <a href='#'>Focus</a> </li> </ul>
-
-    </div>    
+    </div>
 
   </div>
   )

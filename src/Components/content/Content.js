@@ -17,13 +17,13 @@ function Content({ videos, hasSearched }) {
           <div className='video-thumbnail'>
             <iframe
               className='video-thumbnail-iframe'
-              src={`https://www.youtube.com/embed/${video.id.videoId}`}
+              src={`https://www.youtube.com/embed/${video.id.videoId}?modestbranding=1&rel=0`}
               title={video.snippet.title}
-              frameBorder="0"
+              frameBorder="0" 
+              allowFullScreen
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen>
+              >
             </iframe>
-            <div className="hide-logo"></div> {/* Covers the YouTube logo */}
           </div>
 
           <div className="video-text">
@@ -45,12 +45,10 @@ function Content({ videos, hasSearched }) {
       ))}
     </div>
 
-    {/* <div className='loader'> <span>hi</span> </div> */}
-
     <footer>
       <div id='Footer' className='footer-section'>
         <h1> <i className="fa-regular fa-copyright"></i> 
-          2024 BeatBox. All Rights Reserved.
+          2025 BeatBox. All Rights Reserved.
         </h1>
       </div>
     </footer>
