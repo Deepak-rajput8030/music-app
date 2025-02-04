@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../navbar/Navbar';
 import Content from '../content/Content';
+import { getValidApiKey } from './../firebase/apiKeyManager'; // Import API key manager
 import './Home.css';
 
 function Home() {
@@ -12,33 +13,30 @@ function Home() {
   useEffect(() => {
     const fetchTrendingVideos = async () => {
       try {
-        const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoCategoryId=10&order=date&maxResults=12&key=AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s`
-          // `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoSyndicated=true&videoLicense=creativeCommon&maxResults=12&key=AIzaSyCvbf7pyLnncgRHOT0XGsm_F3Ow-OQNb6s`
-        );
+        const apiKey = await getValidApiKey(); // Get the working API key
+        const channelIds = [
+          "UCq-Fj5jknLsUf-MWSy4_brA", // T-Series
+          "UC56gTxNs4f9xZ7Pa2i5xNzg", // Sony Music India
+          "UCFFbwnve3yF62-tVXkTyHqg", // Zee Music Company
+          "UC2pmfLm7iq6Ov1UwYrWYkZA", // Vevo (Main Channel)
+        ];
 
-        if (!response.ok) {
-          const errorData = await response.json();
-          if (errorData.error.code === 403 && errorData.error.errors[0].reason === 'quotaExceeded') {
-            setQuotaMessage('The daily search quota has been exceeded.  Please try again after some time.');
-            
-          }
-          throw new Error("Failed to fetch trending videos");
+        let allVideos = [];
+        for (const channelId of channelIds) {
+          const response = await fetch(
+            `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&videoCategoryId=10&order=date&chart=mostPopular&maxResults=3&key=${apiKey}&channelId=${channelId}`
+          );
+
+          if (!response.ok) throw new Error("Failed to fetch trending videos");
+
+          const data = await response.json();
+          allVideos = [...allVideos, ...data.items];
         }
 
-        // Extract remaining quota from response headers
-        const availableQuota = response.headers.get('X-Quota-Available');
-        if (availableQuota) {
-          setRemainingQuota(availableQuota);
-          // Show remaining quota temporarily for 3 seconds
-          setQuotaMessage(`Quota Remaining: ${availableQuota} / 10000`);
-          setTimeout(() => setQuotaMessage(''), 3000);
-        }
-
-        const data = await response.json();
-        setSearchResults(data.items);
+        setSearchResults(allVideos);
       } catch (error) {
         console.error("Error Fetching Trending Videos: ", error);
+        setQuotaMessage("The daily search quota has been exceeded. Please try again after some time.");
       }
     };
 
